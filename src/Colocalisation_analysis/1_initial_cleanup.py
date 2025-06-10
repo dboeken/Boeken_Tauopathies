@@ -21,8 +21,7 @@ if not os.path.exists(output_folder):
 # ---------------Initial_cleanup---------------
 
 image_ids = {
-    '1': 'file name',
-    
+    '1': 'file name',    
 }
 
 compiled_parameters = []

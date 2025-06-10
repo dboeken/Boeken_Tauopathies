@@ -59,52 +59,6 @@ measure_mean_area.to_csv(f'{output_folder}area.csv')
 measure_mean_eccentricity = properties.groupby(['well_info', 'sample', 'slide_position', 'detect', 'disease_state']).mean().reset_index()
 
 
-# ================= Cumulative plots =================
-diseases = properties["disease_state"].dropna().unique()
-plt.figure(figsize=(8, 6))
-
-for disease in diseases:
-    disease_data = properties[properties["disease_state"] == disease]
-    patients = disease_data["patient"].dropna().unique()
-    
-    x_min = disease_data["smoothed_length"].min()
-    x_max = disease_data["smoothed_length"].max()
-    x_vals = np.linspace(x_min, x_max, 200)
-    
-    # Collect the ECDF (fraction ≤ x) for each patient 
-    y_matrix = []
-    for pat in patients:
-        pat_data = disease_data[disease_data["patient"] == pat]["smoothed_length"].dropna()
-        sorted_vals = np.sort(pat_data)
-        n = len(sorted_vals)
-
-        def fraction_leq(x):
-            idx = np.searchsorted(sorted_vals, x, side='right')
-            return idx / n
-        
-        y_ecdf = [fraction_leq(xi) for xi in x_vals]
-        y_matrix.append(y_ecdf)
-    
-    if len(y_matrix) == 0:
-        continue
-    
-    y_array = np.array(y_matrix)
-    
-    y_mean = y_array.mean(axis=0)
-    y_std = y_array.std(axis=0)
-    
-    # Plot the mean ECDF
-    plt.plot(x_vals, y_mean, label=f"{disease}")
-    plt.fill_between(x_vals, y_mean - y_std, y_mean + y_std, alpha=0.2)
-
-plt.xlabel("smoothed_length")
-plt.ylabel("ECDF")
-plt.title("Cumulative length")
-plt.legend()
-plt.show()
-
-
-
 # ================= Localisation density =================
 properties['density'] = properties['#locs']/ properties['area']
 properties_long_aggregates = properties[properties['smoothed_length'] > 300].groupby(['well_info', 'sample', 'slide_position', 'detect', 'disease_state']).mean()['density'].reset_index()
@@ -153,9 +107,9 @@ properties_merged = pd.merge(properties_long_aggregates, properties_short_aggreg
 properties_merged['density_ratio']= properties_merged['density_x']/properties_merged['density_y']
 
 
-# ===================================================================================
-# ================= Proportion calculation long/fibrillar aggregates =================
-# ===================================================================================
+# ==================================================================
+# ======== Proportion calculation long/fibrillar aggregates ========
+# ==================================================================
 
 # =================Setting parameters=================
 

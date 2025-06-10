@@ -29,5 +29,5 @@ dependencies:
     - bokeh==1.1.0
     - loguru==0.2.5
     - setuptools==41.0.1
-    - git+https://github.com/dezeraecox/GEN_Utils
+    - git+https://github.com/dboeken/smma
 
