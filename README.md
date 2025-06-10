@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/..../.svg)](https://doi.org/###/zenodo.###)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15635269/.svg)](https://doi.org/10.5281/zenodo.15635269)
 
 # Boeken_Tauopathies
 
