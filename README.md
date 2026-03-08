@@ -2,9 +2,14 @@
 
 # Boeken_Tauopathies
 
-This repository contains the analysis code associated with the Tauopathies single-molecule characterisation project, led by Dorothea Böken. This manuscript has been submitted for publication under the title "*Small tau aggregates exhibit disease-specific molecular profiles across tauopathies*".
+This repository contains the analysis code associated with the Tauopathies single-molecule characterisation project, led by Dorothea Böken. 
 
-This manuscript has been submitted as a preprint via BioRxiv [here](https://www.biorxiv.org/content/10.1101/2025.06.10.658934v1). A link to the final version will be provided upon publication.
+The associated manuscript is now published [here](https://www.sciencedirect.com/science/article/pii/S2211124726000124) as:
+
+**Böken, D. et al. (2026). _Nanoscopic tau aggregates are not shared intermediates but disease-specific entities across tauopathies._ Cell Reports, 45(2), 116934.**  
+
+The original preprint is available on [bioRxiv](https://www.biorxiv.org/content/10.1101/2025.06.10.658934v1).
+
 
 ## Prerequisites
 
